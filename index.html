@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Made by Sanota</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Import both Poppins and Story Script fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Story+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">
+        <span class="m-white">Mika's</span>
+      </a>
+    </div>
+    <div class="navbar-right social-links">
+      <a href="https://github.com/" target="_blank" class="social-link">
+        <i class="fab fa-github"></i> Github
+      </a>
+      <a href="https://www.linkedin.com/in/mikaela-sanota-059518342" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </nav>
+  <main>
+    <h1 class="portfolio-title">PROJECT PORTFOLIO</h1>
+    <p class="portfolio-desc">
+      This project portfolio is a collection of projects that reflect my skill in building responsive, user-friendly, and visually engaging websites and mobile applications, along with creative graphic design works.
+    </p>
+    <div class="portfolio-tabs">
+      <button class="tab-btn active" data-tab="websites">Websites</button>
+      <button class="tab-btn" data-tab="mobile">Mobile Application</button>
+      <button class="tab-btn" data-tab="uxui">UX/UI</button>
+      <button class="tab-btn" data-tab="graphics">Graphical Designs</button>
+    </div>
+    <div class="tab-content-container">
+      <div class="tab-content active" id="websites">
+        <div id="websites-content"></div>
+      </div>
+      <div class="tab-content" id="mobile">
+        <div id="mobile-content"></div>
+      </div>
+      <div class="tab-content" id="uxui">
+        <div id="uxui-content"></div>
+      </div>
+      <div class="tab-content" id="graphics">
+        <div id="graphics-content"></div>
+      </div>
+    </div>
+  </main>
+  <script>
+  // Sticky navbar
+  window.addEventListener('scroll', function() {
+    document.querySelector('.navbar').classList.toggle('sticky', window.scrollY > 0);
+  });
+
+  // Tab functionality with animation
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  // Function to activate a tab by id
+  function activateTab(tabId) {
+    tabBtns.forEach(b => {
+      b.classList.toggle('active', b.dataset.tab === tabId);
+    });
+    tabContents.forEach(tc => {
+      tc.classList.remove('active', 'animating');
+    });
+    const activeTab = document.getElementById(tabId);
+    activeTab.classList.add('active');
+    setTimeout(() => {
+      activeTab.classList.add('animating');
+    }, 10);
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activateTab(btn.dataset.tab);
+    });
+  });
+
+  // Dynamically load tab contents
+  function loadTabContent(tabId, fileName, cssFile) {
+    fetch(fileName)
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById(tabId + '-content').innerHTML = html;
+        if (cssFile) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = cssFile;
+          document.head.appendChild(link);
+        }
+      });
+  }
+
+  loadTabContent('websites', 'website.html', 'website.css');
+  loadTabContent('mobile', 'mobile.html', 'mobile.css');
+  loadTabContent('uxui', 'uxui.html', 'uxui.css');
+  loadTabContent('graphics', 'graphics.html', 'graphics.css');
+
+  // Automatically activate the "websites" tab on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    activateTab('websites');
+  });
+</script>
+  
+</body>
+</html>
