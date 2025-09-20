@@ -109,7 +109,7 @@
 }
 
 .gallery-row.three .gallery-images {
-  width: 450px;
+  width: 550px;
   height: auto;
 }
 
@@ -117,23 +117,22 @@
   gap: 8px;
 }
 .gallery-row.two .gallery-images {
-  width: 450px; 
+  width: 550px; 
   height: auto;
 }
 
 
 .gallery-row.one .gallery-images {
-  width: 600px;
+  width: 400px;
   height: auto;
   margin-bottom: 20px;
 }
 
 .gallery-row.three-two .gallery-images {
-  width: 350px; 
+  width: 370px; 
   height: auto;
   margin-bottom: 50px;
 }
-
 
 
 
@@ -168,7 +167,6 @@
   margin-top: 0; /* pull subtitle closer to row */
   margin-bottom: 30px;
 }
-
 
 
 
