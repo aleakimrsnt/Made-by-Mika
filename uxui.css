@@ -8,6 +8,7 @@ body {
   color: #000000;
 }
 
+
 .carousel {
   display: flex;
   flex-direction: column;
@@ -43,8 +44,26 @@ body {
   color: #27ae60;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
+
+.carousel-subtitleII {
+  font-size: 1rem;   /* adjust like h5 */
+  margin: 0;            /* reset spacing if needed */
+  color: #1e13ea;
+  margin-top: -10px;
+}
+
+.carousel-subtitleII a {
+  color: inherit;         /* same color as parent */
+  text-decoration: none;  /* remove underline */
+  font-style: italic; /* italic style */
+}
+
+.carousel-subtitleII a:hover {
+  text-decoration: underline; /* optional hover effect */
+}
+
 
 .carousel-img {
   width: 100%;
