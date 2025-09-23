@@ -50,13 +50,13 @@ body {
 .carousel-subtitleII {
   font-size: 1rem;   /* adjust like h5 */
   margin: 0;            /* reset spacing if needed */
-  color: #1e13ea;
+  color: #678cf3;
   margin-top: -10px;
 }
 
 .carousel-subtitleII a {
   color: inherit;         /* same color as parent */
-  text-decoration: none;  /* remove underline */
+  text-decoration: underline;  /* remove underline */
   font-style: italic; /* italic style */
 }
 
